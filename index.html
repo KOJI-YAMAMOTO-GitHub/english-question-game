@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>English quiz</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="">
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-100445243-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-100445243-8');
+</script>
+    <audio id="sound-file-ok" preload="auto">
+        <source src="https://soundeffect-lab.info/sound/anime/mp3/correct1.mp3" type="audio/mp3"></audio>
+    <audio id="sound-file-ng" preload="auto">
+        <source src="https://soundeffect-lab.info/sound/anime/mp3/incorrect1.mp3" type="audio/mp3"></audio>
+    <style type="text/css">
+        body {
+            text-align: center;
+            font-family: "Nico Moji";
+            background-color: burlywood;
+        }
+
+        #title {
+            /*非対応のブラウザでの文字色を設定*/
+            color: #FF8C00;
+            /*背景色にグラデーションを指定*/
+            /* background: -webkit-linear-gradient(0deg, rgb(249, 251, 251), rgb(238, 255, 0), rgb(251, 0, 176)); */
+            /*テキストでくり抜く*/
+            /* -webkit-background-clip: text; */
+            /*くり抜いた部分は背景を表示*/
+            /* -webkit-text-fill-color: transparent; */
+            font-size: 8vw;
+            margin: 5px;
+        }
+
+        #question {
+            color:rgb(255, 255, 255);
+            font-size: 4vw;
+        }
+
+        #btn {
+            width: 30vw;
+            height: 30px;
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            background: #668ad8;
+            /*ボタン色*/
+            color: #FFF;
+            border-bottom: solid 4px #627295;
+            border-radius: 3px;
+        }
+
+        #btn:active {
+            /*ボタンを押したとき*/
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            /*下に動く*/
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+            /*影を小さく*/
+            border-bottom: none;
+        }
+
+        #aa-ul {
+            list-style: none;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+            width: 90%;
+            flex-wrap:wrap;
+
+            animation-name: fade-in3;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+            animation-delay: 1s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+        }
+
+        img {
+            width: 10vw;
+            margin: auto;
+            margin-top: 10px;
+            border: 5px solid whitesmoke;
+            border-radius: 5px;
+        }
+
+        @keyframes fade-in3 {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @media screen and (min-width: 767px) {
+            /*PC用*/
+        }
+
+        @media screen and (max-width: 767px) {
+            /*タブレット用*/
+        }
+
+        @media screen and (max-width: 479px) {
+            /*スマホ用*/
+/*
+            #aa-ul {
+                list-style: none;
+                display: -webkit-flex;
+                display: block;
+                -webkit-justify-content: space-around;
+                justify-content: space-around;
+            }
+*/
+            img {
+                width: 26.5vw;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+
+        var aa_array = [
+        'raion,Lion(ライオン),https://takaratomymall.jp/img/goods/1/4904810894186.jpg,Lion',
+'tora,Tiger(トラ),https://takaratomymall.jp/img/goods/1/4904810894193.jpg,Tiger',
+'zou,elephant(ぞう),https://takaratomymall.jp/img/goods/L/4904810981503_f9afb3688b4b4377abc4f64d0e4fe2cc.jpg,elephant',
+'usagi,Rabbit(うさぎ),https://takaratomymall.jp/img/goods/C/4904810119524_07cb6d60c8bc4be7bc3bfb51aca394ea.jpg,Rabbit',
+'gorira,Gorilla(ゴリラ),https://takaratomymall.jp/img/goods/2/4904810499626_f12ce394009843dbb96845a10b91329e.jpg,gorilla',
+'wani,Crocodile(ワニ),https://takaratomymall.jp/img/goods/C/4904810964896.jpg,crocodile',
+'kuma,Bear(くま),https://takaratomymall.jp/img/goods/5/4904810876175.jpg,Bear',
+'koara,Koala(コアラ),https://takaratomymall.jp/img/goods/1/4904810811268.jpg,Koala',
+'kirin,Giraffe(キリン),https://takaratomymall.jp/img/goods/5/4904810871057.jpg,giraffe',
+'kaba,Hippo(かば),https://takaratomymall.jp/img/goods/5/4904810487968.jpg,hippo',
+'panda,Panda(パンダ),https://takaratomymall.jp/img/goods/5/4904810487937.jpg,Panda',
+'shimauma,Zebra(シマウマ),https://takaratomymall.jp/img/goods/5/4904810487944.jpg,zebra',
+'kame,Tortoise(カメ),https://takaratomymall.jp/img/goods/L/4904810137610_9e7f8bb835094805a536abd83fb39a18.jpg,tortoise',
+'pengin,Penguin(ペンギン),https://takaratomymall.jp/img/goods/5/4904810615460_8105fef8792e44009e2bc951769a2beb.jpg,Penguin',
+'same,Shark(サメ),https://takaratomymall.jp/img/goods/C/4904810137603_5742125c309b4c648e8ef091bdb8c609.jpg,shark',
+'iruka,Dolphin(イルカ),https://takaratomymall.jp/img/goods/5/4904810615446_8a40e6bdfda9416fb0755121f09af5a0.jpg,Dolphin',
+'ashika,Sea lion(アシカ),https://takaratomymall.jp/img/goods/4/4904810803652.jpg,Sea lion',
+'apple,apple(りんご),https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/661px-Red_Apple.jpg,apple',
+'Grape,Grape(ぶどう),https://upload.wikimedia.org/wikipedia/commons/0/06/Autumn_Royal_grapes.jpg,Grape',
+'peach,peach(桃),https://upload.wikimedia.org/wikipedia/commons/a/a4/Vineyard_peaches_de.jpg,peach',
+'banana,banana(バナナ),https://upload.wikimedia.org/wikipedia/commons/3/3f/Okinawa_Shima_Banana.jpg,banana',
+'Kiwi,Kiwi(キウイ),https://upload.wikimedia.org/wikipedia/commons/4/43/Actinidia_chinensis4.jpg,Kiwi',
+'pineapple,pineapple(パイナップル),https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg,pineapple',
+'Orange,Orange(オレンジ),https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1920px-Ambersweet_oranges.jpg,Orange',
+'watermelon,watermelon(スイカ),https://upload.wikimedia.org/wikipedia/commons/8/89/Citrullus_lanatus5SHSU.jpg,watermelon',
+'melon,melon(メロン),https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Cantaloupes.jpg/1920px-Cantaloupes.jpg,melon',
+'Persimmon,Persimmon(柿),https://upload.wikimedia.org/wikipedia/commons/c/cd/Kaki.JPG,Persimmon'
+
+         ];
+        var answer_aa = ""
+
+
+        function check(value) {
+            if (answer_aa === value) {
+                document.getElementById('sound-file-ok').play();
+            } else {
+                document.getElementById('sound-file-ng').play();
+            }
+        }
+
+        function change() {
+
+            //質問を初期化
+            var element_question = document.getElementById("question");
+            if (element_question) {
+                element_question.parentNode.removeChild(element_question);
+            }
+
+            //初期化
+            var elems_aa = document.getElementsByClassName("aa");
+            var len = elems_aa.length;
+            for (var i = 0; i < len; i++) {
+                var e = elems_aa[0];
+                e.parentNode.removeChild(e);
+            }
+
+            //配列をランダムに入れ替え
+            for (var i = aa_array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var tmp = aa_array[i];
+                aa_array[i] = aa_array[j];
+                aa_array[j] = tmp;
+            }
+
+            for (var k = 0; k < aa_array.length; k++) {
+
+                //色配列を分割
+                var aa_array_split = aa_array[k].split(',');
+                var aa = aa_array_split[0];
+                var aa_name = aa_array_split[1];
+                var aa_img_url = aa_array_split[2];
+
+                //色表示タグ追加
+                var element = document.getElementById('aa-ul');
+                element.insertAdjacentHTML('beforeend', '<li><img class="aa" src="' + aa_img_url + '" alt="' + aa_name + '" onclick="check(\'' + aa + '\')"></li>');
+
+            }
+            //色を指定
+            var arrayIndex = Math.floor(Math.random() * aa_array.length);
+            var question_aa = aa_array[arrayIndex];
+            answer_aa = question_aa.split(',')[0];
+            var answer_aa_name = question_aa.split(',')[1];
+            var answer_aa_speak = question_aa.split(',')[3];
+            var element = document.getElementById('btn');
+            element.insertAdjacentHTML('afterend', '<h2 id="question">' + answer_aa_name + 'はどれかな？</h2>');
+            
+            //音声読み上げ
+            var speak = new SpeechSynthesisUtterance();
+            speak.text = "Which is " + answer_aa_speak + "?";
+            speak.rate = 0.7;
+            speak.lang = 'en-US';
+            if(window.navigator.userAgent.toLowerCase().indexOf('safari') == -1) {
+                speak.voice = window.speechSynthesis.getVoices()[7];
+            }
+            speechSynthesis.speak(speak);
+
+            //音声再再生ボタン追加
+            var element_sp = document.getElementById('aa-sp');
+            element_sp.insertAdjacentHTML('beforeend','<p id="btn" class="aa" onclick="speakenglish(\'' + answer_aa_speak + '\')">音声再生</p>');
+
+        }
+        function speakenglish(value) {
+            //音声読み上げ
+            var speak = new SpeechSynthesisUtterance();
+            speak.text = "Which is " + value + "?";
+            speak.rate = 0.7;
+            speak.lang = 'en-US';
+            if(window.navigator.userAgent.toLowerCase().indexOf('safari') == -1) {
+                speak.voice = window.speechSynthesis.getVoices()[7];
+            }
+            speechSynthesis.speak(speak);
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 id="title">quiz</h1>
+    <p id="btn" onclick="change()">つぎは、どの英語かな？</p>
+    <ul id="aa-sp"></ul>
+    <ul id="aa-ul"></ul>
+</body>
+
+</html>
