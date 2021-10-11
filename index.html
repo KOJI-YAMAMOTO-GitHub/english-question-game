@@ -227,12 +227,9 @@
             
             //音声読み上げ
             var speak = new SpeechSynthesisUtterance();
-            // speak.lang = 'en-US';
+            speak.lang = 'en-US';
             speak.text = "Which is " + answer_aa_speak + "?";
             speak.rate = 1;
-            // if(window.navigator.userAgent.toLowerCase().indexOf('safari') == -1) {
-            //     speak.voice = window.speechSynthesis.getVoices()[7];
-            // }
             speechSynthesis.speak(speak);
 
             //音声再再生ボタン追加
@@ -278,7 +275,7 @@
 </head>
 
 <body>
-    <h1 id="title">quiz</h1>
+    <h1 id="title">English quiz</h1>
     <p id="btn" onclick="change()">つぎは、どの英語かな？</p>
     <ul id="aa-sp"></ul>
     <ul id="aa-ul"></ul>
