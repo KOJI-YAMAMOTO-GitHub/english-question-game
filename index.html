@@ -227,7 +227,7 @@
             
             //音声読み上げ
             var speak = new SpeechSynthesisUtterance();
-            speak.lang = 'en-US';
+            speak.lang = "en-US";
             speak.text = "Which is " + answer_aa_speak + "?";
             speak.rate = 1;
             // if(window.navigator.userAgent.toLowerCase().indexOf('safari') == -1) {
@@ -245,7 +245,7 @@
         function speakenglish(value) {
             //音声読み上げ
             var speak = new SpeechSynthesisUtterance();
-            speak.lang = 'en-US';
+            speak.lang = "en-US";
             speak.text = "Which is " + value + "?";
             speak.rate = 1;
             // if(window.navigator.userAgent.toLowerCase().indexOf('safari') == -1) {
@@ -279,7 +279,7 @@
 
 <body>
     <h1 id="title">English quiz</h1>
-    <p id="btn" onclick="change()">つぎは、どの英語かな？</p>
+    <p id="btn" onclick="change()">つぎは、どの英語かな?？</p>
     <ul id="aa-sp"></ul>
     <ul id="aa-ul"></ul>
     <ul id="aa-help"></ul>
