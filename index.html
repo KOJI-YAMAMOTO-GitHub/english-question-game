@@ -145,13 +145,13 @@
 'gorira,Gorilla(ゴリラ),https://takaratomymall.jp/img/goods/2/4904810499626_f12ce394009843dbb96845a10b91329e.jpg,gorilla,ゴリラ',
 'wani,Crocodile(ワニ),https://takaratomymall.jp/img/goods/C/4904810964896.jpg,crocodile,ワニ',
 'kuma,Bear(くま),https://takaratomymall.jp/img/goods/5/4904810876175.jpg,Bear,くま',
-'koara,Koala(コアラ),https://takaratomymall.jp/img/goods/1/4904810811268.jpg,Koala,koara',
+'koara,Koala(コアラ),https://takaratomymall.jp/img/goods/1/4904810811268.jpg,Koala,こあら',
 'kirin,Giraffe(キリン),https://takaratomymall.jp/img/goods/5/4904810871057.jpg,giraffe,キリン',
 'kaba,Hippo(かば),https://takaratomymall.jp/img/goods/5/4904810487968.jpg,hippo,かば',
 'panda,Panda(パンダ),https://takaratomymall.jp/img/goods/5/4904810487937.jpg,Panda,パンダ',
 'shimauma,Zebra(シマウマ),https://takaratomymall.jp/img/goods/5/4904810487944.jpg,zebra,しまうま',
 'kame,Tortoise(カメ),https://takaratomymall.jp/img/goods/L/4904810137610_9e7f8bb835094805a536abd83fb39a18.jpg,tortoise,カメ',
-'pengin,Penguin(ペンギン),https://takaratomymall.jp/img/goods/5/4904810615460_8105fef8792e44009e2bc951769a2beb.jpg,Penguin,pengin',
+'pengin,Penguin(ペンギン),https://takaratomymall.jp/img/goods/5/4904810615460_8105fef8792e44009e2bc951769a2beb.jpg,Penguin,ぺんぎん',
 'same,Shark(サメ),https://takaratomymall.jp/img/goods/C/4904810137603_5742125c309b4c648e8ef091bdb8c609.jpg,shark,サメ',
 'iruka,Dolphin(イルカ),https://takaratomymall.jp/img/goods/5/4904810615446_8a40e6bdfda9416fb0755121f09af5a0.jpg,Dolphin,いるか',
 'ashika,Sea lion(アシカ),https://takaratomymall.jp/img/goods/4/4904810803652.jpg,Sea lion,あしか',
@@ -230,6 +230,9 @@
             speak.lang = 'en-US';
             speak.text = "Which is " + answer_aa_speak + "?";
             speak.rate = 1;
+            // if(window.navigator.userAgent.toLowerCase().indexOf('safari') == -1) {
+            //     speak.voice = window.speechSynthesis.getVoices()[7];
+            // }
             speechSynthesis.speak(speak);
 
             //音声再再生ボタン追加
